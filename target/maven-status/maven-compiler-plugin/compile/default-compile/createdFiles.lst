@@ -1,0 +1,9 @@
+com\sin\proyecto2\udep\test\controllers\IniciaSesion.class
+com\sin\proyecto2\udep\test\usuarioDAO\Conexiondb.class
+com\sin\proyecto2\udep\test\beans\Profesores.class
+com\sin\proyecto2\udep\test\services\usuarioservices.class
+com\sin\proyecto2\udep\test\JAXRSConfiguration.class
+com\sin\proyecto2\udep\test\usuarioDAO\usuarioDAO.class
+com\sin\proyecto2\udep\test\beans\Cursos.class
+com\sin\proyecto2\udep\test\resources\JavaEE8Resource.class
+com\sin\proyecto2\udep\test\beans\Usuario.class
