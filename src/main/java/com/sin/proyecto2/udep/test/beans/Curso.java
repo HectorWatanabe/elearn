@@ -9,67 +9,52 @@ package com.sin.proyecto2.udep.test.beans;
  *
  * @author HP
  */
-public class Cursos {
-    private String Curso;
-    private String Descripción;
-    private String Duraciónhoras;
-    private String Inversión;
-
-
-    /**
-     * @return the Curso
-     */
-    public String getCurso() {
-        return Curso;
-    }
-
-    /**
-     * @param Curso the Curso to set
-     */
-    public void setCurso(String Curso) {
-        this.Curso = Curso;
-    }
-
-    /**
-     * @return the Descripción
-     */
-    public String getDescripción() {
-        return Descripción;
-    }
-
-    /**
-     * @param Descripción the Descripción to set
-     */
-    public void setDescripción(String Descripción) {
-        this.Descripción = Descripción;
-    }
-
-    /**
-     * @return the Duraciónhoras
-     */
-    public String getDuraciónhoras() {
-        return Duraciónhoras;
-    }
-
-    /**
-     * @param Duraciónhoras the Duraciónhoras to set
-     */
-    public void setDuraciónhoras(String Duraciónhoras) {
-        this.Duraciónhoras = Duraciónhoras;
-    }
-
-    /**
-     * @return the Inversión
-     */
-    public String getInversión() {
-        return Inversión;
-    }
-
-    /**
-     * @param Inversión the Inversión to set
-     */
-    public void setInversión(String Inversión) {
-        this.Inversión = Inversión;
-    }
+public class Curso {
     
+    private String codigo;
+    private String nombre;
+    private String descripcion;
+    private String duracionHoras;
+    private String inversion;
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDuracionHoras() {
+        return duracionHoras;
+    }
+
+    public void setDuracionHoras(String duracionHoras) {
+        this.duracionHoras = duracionHoras;
+    }
+
+    public String getInversion() {
+        return inversion;
+    }
+
+    public void setInversion(String inversion) {
+        this.inversion = inversion;
+    }
+
 }

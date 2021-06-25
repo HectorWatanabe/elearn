@@ -5,23 +5,19 @@
  */
 package com.sin.proyecto2.udep.test.usuarioDAO;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /**
  *
  * @author User
  */
 public class Conexiondb {
-    
-    protected static Connection initializeDatabase()
-        throws SQLException, ClassNotFoundException
-    {        
-        
-        Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/elearn?user=root&password=");
-        
-        return con;
-    }    
- 
+
+    public static Connection initializeDatabase() throws SQLException, ClassNotFoundException {
+        Class.forName("org.mariadb.jdbc.Driver");
+        return DriverManager.getConnection("jdbc:mariadb://localhost:3306/elearn?user=root&password=");
+    }
+
 }

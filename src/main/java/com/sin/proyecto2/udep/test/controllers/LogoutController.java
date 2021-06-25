@@ -5,7 +5,7 @@
  */
 package com.sin.proyecto2.udep.test.controllers;
 
-import com.sin.proyecto2.udep.test.services.LoginService;
+import com.sin.proyecto2.udep.test.services.LogoutService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,28 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author HP
+ * @author developer
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
+@WebServlet(name = "LogoutController", urlPatterns = {"/logout"})
+public class LogoutController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String correo = request.getParameter("Correousuario");
-        String clave = request.getParameter("Claveusuario");
-
-        LoginService service = new LoginService();
-
-        String respuesta = service.login(correo, clave, request.getSession());
-
-        if (!"OK".equals(respuesta)) {
-            response.sendRedirect(request.getContextPath() + "/error.html");
-        } else {
-            response.sendRedirect("/inicio");
-        }
-
+        
+        
+        LogoutService service = new LogoutService();
+        service.logout(request.getSession(false));
+        response.sendRedirect(request.getContextPath() + "/index.html");
+        
     }
 
 }

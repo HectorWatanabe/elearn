@@ -10,6 +10,7 @@ package com.sin.proyecto2.udep.test.beans;
  * @author HP
  */
 public class Usuario {
+    
     private String Nombreusuario;
     private String Apellidousuario;
     private String Correousuario;

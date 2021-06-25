@@ -6,16 +6,22 @@
 package com.sin.proyecto2.udep.test.services;
 
 import com.sin.proyecto2.udep.test.beans.Usuario;
-import com.sin.proyecto2.udep.test.usuarioDAO.usuarioDAO;
+import com.sin.proyecto2.udep.test.usuarioDAO.UsuarioDao;
 import java.sql.SQLException;
 
 /**
  *
  * @author HP
  */
-public class usuarioservices {
-    private usuarioDAO usuarioDAO = new usuarioDAO();
-    public int buscarusuario(String correo, String clave, Usuario usuario) throws ClassNotFoundException, SQLException{    
+public class UsuarioService {
+
+    private final UsuarioDao usuarioDAO = new UsuarioDao();
+   
+
+    /*
+    public int buscarusuario(String correo, String clave, Usuario usuario) throws ClassNotFoundException, SQLException {
         return usuarioDAO.buscarusuario(correo, clave, usuario);
-    }    
+    }
+    */
+    
 }

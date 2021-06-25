@@ -9,67 +9,54 @@ package com.sin.proyecto2.udep.test.beans;
  *
  * @author HP
  */
-public class Profesores {
-    private String NombreProf;
-    private String ApellidoProf;
-    private String Profdescrip;
-    private String Cursos_idCursos;
+public class Profesor {
+    
+    private String code;
+    private String nombre;
+    private String apellido;
+    private String descripcion;
+    private String cursoId;
 
-
-    /**
-     * @return the NombreProf
-     */
-    public String getNombreProf() {
-        return NombreProf;
+    public String getCode() {
+        return code;
     }
 
-    /**
-     * @param NombreProf the NombreProf to set
-     */
-    public void setNombreProf(String NombreProf) {
-        this.NombreProf = NombreProf;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    /**
-     * @return the ApellidoProf
-     */
-    public String getApellidoProf() {
-        return ApellidoProf;
+    public String getNombre() {
+        return nombre;
     }
 
-    /**
-     * @param ApellidoProf the ApellidoProf to set
-     */
-    public void setApellidoProf(String ApellidoProf) {
-        this.ApellidoProf = ApellidoProf;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    /**
-     * @return the Profdescrip
-     */
-    public String getProfdescrip() {
-        return Profdescrip;
+    public String getApellido() {
+        return apellido;
     }
 
-    /**
-     * @param Profdescrip the Profdescrip to set
-     */
-    public void setProfdescrip(String Profdescrip) {
-        this.Profdescrip = Profdescrip;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    /**
-     * @return the Cursos_idCursos
-     */
-    public String getCursos_idCursos() {
-        return Cursos_idCursos;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    /**
-     * @param Cursos_idCursos the Cursos_idCursos to set
-     */
-    public void setCursos_idCursos(String Cursos_idCursos) {
-        this.Cursos_idCursos = Cursos_idCursos;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
+
+    public String getCursoId() {
+        return cursoId;
+    }
+
+    public void setCursoId(String cursoId) {
+        this.cursoId = cursoId;
+    }
+    
+    
         
 }
