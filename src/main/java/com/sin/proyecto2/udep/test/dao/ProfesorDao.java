@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sin.proyecto2.udep.test.usuarioDAO;
+package com.sin.proyecto2.udep.test.dao;
 
 import com.sin.proyecto2.udep.test.beans.Profesor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +18,89 @@ import java.util.Optional;
  */
 public class ProfesorDao implements Dao<Profesor>{
 
+    public Optional<Profesor> getByIdCurso(long cursoId) {
+        try (Connection con = Conexiondb.initializeDatabase()) {
+
+            String query = "SELECT * FROM profesor WHERE Cursos_idCursos = ?";
+            
+            Optional<Profesor> optionalProfesor;
+
+            try (PreparedStatement stmt = con.prepareStatement(query)) {
+
+                stmt.setLong(1, cursoId);
+                
+                Profesor profesor;
+
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    if (rs.first() == false) {
+                        throw new Exception("No se encontró al profesor.");
+                    }
+                        
+                    profesor = new Profesor();
+                    profesor.setCode(rs.getString("idProfesor"));
+                    profesor.setNombre(rs.getString("NombreProf"));
+                    profesor.setApellido(rs.getString("ApellidoProf"));
+                    profesor.setDescripcion(rs.getString("Profdescrip"));
+                    profesor.setCursoId(rs.getString("Cursos_idCursos"));
+
+                }
+                
+                optionalProfesor = Optional.of(profesor);
+                
+            }
+
+            return optionalProfesor;
+
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            return Optional.empty();
+            
+        }
+    }
+    
     @Override
     public Optional<Profesor> get(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection con = Conexiondb.initializeDatabase()) {
+
+            String query = "SELECT * FROM profesor WHERE idProfesor = ?";
+            
+            Optional<Profesor> optionalProfesor;
+
+            try (PreparedStatement stmt = con.prepareStatement(query)) {
+
+                stmt.setLong(1, id);
+                
+                Profesor profesor;
+
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    if (rs.first() == false) {
+                        throw new Exception("No se encontró al profesor.");
+                    }
+                        
+                    profesor = new Profesor();
+                    profesor.setCode(rs.getString("idProfesor"));
+                    profesor.setNombre(rs.getString("NombreProf"));
+                    profesor.setApellido(rs.getString("ApellidoProf"));
+                    profesor.setDescripcion(rs.getString("Profdescrip"));
+                    profesor.setCursoId(rs.getString("Cursos_idCursos"));
+
+                }
+                
+                optionalProfesor = Optional.of(profesor);
+                
+            }
+
+            return optionalProfesor;
+
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            return Optional.empty();
+            
+        }
     }
 
     @Override

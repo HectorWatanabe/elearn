@@ -4,99 +4,98 @@
     Author     : developer
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:app>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="com.sin.proyecto2.udep.test.beans.Curso"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+
+<%
+    List<Curso> cursos = (List) request.getAttribute("cursos");
+    String search = (String) request.getAttribute("search");
+%>
+
+<c:set var="bodyContent">
 
     <div class="contenido1">
+
+        <!-- Titulo -->
         <h1 class="h1-table-table">Gestión de Cursos</h1>
+
+        <!-- Opciones gestión curso -->
         <div class="barra-opciones">   
+
+            <!-- Barra buscar -->
             <div class="form-buscar">
                 <div class="flexsearch">
                     <div class="flexsearch--wrapper">
-                        <form class="flexsearch--form" action="#" method="post">
+                        <form class="flexsearch--form" method="get">
                             <div class="flexsearch--input-wrapper">
-                                <input class="flexsearch--input" type="search" placeholder="Buscar">
+                                <input class="flexsearch--input" 
+                                       name="search" 
+                                       type="text" 
+                                       placeholder="Buscar"
+                                       value="${search}">
                             </div>
                             <input class="flexsearch--submit" type="submit" value="➜">
                         </form>
                     </div>
                 </div>
             </div>
+
+            <!-- Nuevo Curso -->
             <div class="seccion-opciones">
                 <a class="boton-principal" href="/curso/nuevo">Registrar Curso</a>
             </div>
+
         </div>
-        <div class="tbl-header-elearn">
-            <table class="table-elearn" cellpadding="0" cellspacing="0" border="0">
-                <thead>
-                    <tr>
-                        <th class="th-elearn">#</th>
-                        <th class="th-elearn">Nombre</th>
-                        <th class="th-elearn">Descripción</th>
-                        <th class="th-elearn">Duración (horas)</th>
-                        <th class="th-elearn">Inversión</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-        <div class="tbl-content-elearn">
-            <table class="table-elearn" cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                    <tr>
-                        <td class="td-elearn">AAC</td>
-                        <td class="td-elearn">AUSTRALIAN COMPANY </td>
-                        <td class="td-elearn">$1.38</td>
-                        <td class="td-elearn">+2.01</td>
-                        <td class="td-elearn">-0.36%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+        <!-- Tabla curso -->
+        <div>
+            
+            <!-- Cabecera de tabla -->
+            <div class="tbl-header-elearn">
+                <table class="table-elearn">
+                    <thead>
+                        <tr>
+                            <th class="th-elearn column-1-curso-elearn">#</th>
+                            <th class="th-elearn column-2-curso-elearn">Nombre</th>
+                            <th class="th-elearn column-3-curso-elearn">Descripción</th>
+                            <th class="th-elearn column-4-curso-elearn">Duración (horas)</th>
+                            <th class="th-elearn column-5-curso-elearn">Inversión</th>
+                            <th class="th-elearn">Opciones</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            
+            <!-- Contenido de tabla -->
+            <div class="tbl-content-elearn">
+                <table class="table-elearn">
+                    <tbody>
+                        <c:forEach items="${cursos}" var="curso">
+                            <tr>
+                                <td class="td-elearn column-1-curso-elearn">${curso.getCodigo()}</td>
+                                <td class="td-elearn column-2-curso-elearn">${curso.getNombre()}</td>
+                                <td class="td-elearn column-3-curso-elearn">${curso.getDescripcion()}</td>
+                                <td class="td-elearn column-4-curso-elearn">${curso.getDuracionHoras()}</td>
+                                <td class="td-elearn column-5-curso-elearn">${curso.getInversion()}</td>
+                                <td class="td-elearn">
+                                    <a class="cta" href="/curso/detalle?codigo=${curso.getCodigo()}">Detalle</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>       
     </div>
 
+</c:set>
 
+<t:app>
+    ${bodyContent}
 </t:app>

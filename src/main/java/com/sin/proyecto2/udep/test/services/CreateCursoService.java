@@ -8,8 +8,8 @@ package com.sin.proyecto2.udep.test.services;
 import com.sin.proyecto2.udep.test.beans.Curso;
 import com.sin.proyecto2.udep.test.beans.Profesor;
 
-import com.sin.proyecto2.udep.test.usuarioDAO.CursoDao;
-import com.sin.proyecto2.udep.test.usuarioDAO.ProfesorDao;
+import com.sin.proyecto2.udep.test.dao.CursoDao;
+import com.sin.proyecto2.udep.test.dao.ProfesorDao;
 
 /**
  *

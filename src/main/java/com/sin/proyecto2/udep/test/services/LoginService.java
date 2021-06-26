@@ -6,7 +6,7 @@
 package com.sin.proyecto2.udep.test.services;
 
 import com.sin.proyecto2.udep.test.beans.Usuario;
-import com.sin.proyecto2.udep.test.usuarioDAO.UsuarioDao;
+import com.sin.proyecto2.udep.test.dao.UsuarioDao;
 import javax.servlet.http.HttpSession;
 
 /**

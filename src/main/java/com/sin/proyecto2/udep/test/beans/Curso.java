@@ -16,6 +16,7 @@ public class Curso {
     private String descripcion;
     private String duracionHoras;
     private String inversion;
+    private Profesor profesor;
 
     public String getCodigo() {
         return codigo;
@@ -57,4 +58,17 @@ public class Curso {
         this.inversion = inversion;
     }
 
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" + "codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", duracionHoras=" + duracionHoras + ", inversion=" + inversion + ", profesor=" + profesor + '}';
+    }
+    
 }

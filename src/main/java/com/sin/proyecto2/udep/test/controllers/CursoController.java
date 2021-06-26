@@ -18,17 +18,28 @@ import javax.servlet.http.HttpServletResponse;
  * @author developer
  */
 @WebServlet(name = "CursoController", urlPatterns = {"/curso/nuevo"})
-public class CursoController extends HttpServlet {
+public class CursoController extends BaseController {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        if(!validateSessionService.validate(request.getSession(false))) {
+            response.sendRedirect(request.getContextPath() + "/index.html");
+            return;
+        }
+        
         request.getRequestDispatcher("nuevo.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        if(!validateSessionService.validate(request.getSession(false))) {
+            response.sendRedirect(request.getContextPath() + "/index.html");
+            return;
+        }
         
         request.setCharacterEncoding("UTF-8");
         

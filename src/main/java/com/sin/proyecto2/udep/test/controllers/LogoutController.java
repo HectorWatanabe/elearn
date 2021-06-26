@@ -18,12 +18,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author developer
  */
 @WebServlet(name = "LogoutController", urlPatterns = {"/logout"})
-public class LogoutController extends HttpServlet {
+public class LogoutController extends BaseController {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        if(!validateSessionService.validate(request.getSession(false))) {
+            response.sendRedirect(request.getContextPath() + "/index.html");
+            return;
+        }
         
         LogoutService service = new LogoutService();
         service.logout(request.getSession(false));
