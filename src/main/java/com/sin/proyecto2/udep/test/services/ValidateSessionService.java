@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class ValidateSessionService {
     
     public boolean validate(HttpSession session) {
-        return session != null;
+        return session.getAttribute("user") != null;
     }
     
 }

@@ -15,8 +15,11 @@
 
             <!-- Menú -->
             <div class="enlaces-header">
-                <a href="#" class="cta" onclick="document.querySelector('#logoutForm').submit()">Salir</a>
-                <form id="logoutForm" action="/logout" method="post" hidden></form>
+                <a class="cta" 
+                   onclick="document.querySelector('#logoutForm').submit()">Salir</a>
+                <form id="logoutForm" 
+                      action="${pageContext.request.contextPath}/logout" 
+                      method="post" hidden></form>
             </div>
             <div class="menu">
                 <i class='bx bx-menu' ></i>

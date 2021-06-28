@@ -11,7 +11,7 @@
 
 <c:set var="bodyContent">
     <div>
-        <a class="link-elearn" href="/inicio">Regresar</a>
+        <a class="link-elearn" href="${pageContext.request.contextPath}/inicio">Regresar</a>
 
         <div class="form-crear-curso">
             <div class="form-style-8">

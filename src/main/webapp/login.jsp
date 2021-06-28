@@ -1,10 +1,17 @@
+<%-- 
+    Document   : login.jsp
+    Created on : 28 jun. 2021, 15:31:22
+    Author     : developer
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Learn</title>
-    <link rel="stylesheet" href="CSS/estilologin.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilologin.css">
     <link rel="shortcut icon" href="image/logosolo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -15,10 +22,10 @@
       <!-- Imagen lateral -->
       <div class="caja-imagen">
         <div class="imagen active">
-          <img src="image/MobileLogin.png" alt="">
+          <img src="${pageContext.request.contextPath}/image/MobileLogin.png" alt="">
           <div class="caja-logo">
             <div class="logo">
-              <img src="image/logonombre.png" alt="">
+              <img src="${pageContext.request.contextPath}/image/logonombre.png" alt="">
             </div>
             <p class="imagen-texto">Potencia tus capacidades sin límites y únete a la comunidad e-Learn.</p>
           </div>
@@ -37,7 +44,10 @@
           </ul>
 
           <!-- Formulario Login -->
-          <form action="/login" method="POST" id="formLogin" class="formulario active">
+          <form action="${pageContext.request.contextPath}/login" 
+                method="POST" 
+                id="formLogin" 
+                class="formulario active">
               
             <input type="text" 
                    placeholder="Correo Electrónico" 
@@ -95,6 +105,6 @@
       </div>
     </div>
     <!-- Script -->
-    <script src="JS/login.js"></script>
+    <script src="${pageContext.request.contextPath}/js/login.js"></script>
   </body>
 </html>

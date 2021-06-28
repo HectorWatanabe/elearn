@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Learn</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/estilo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/image/logosolo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>

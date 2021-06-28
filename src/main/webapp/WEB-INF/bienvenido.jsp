@@ -48,7 +48,7 @@
 
             <!-- Nuevo Curso -->
             <div class="seccion-opciones">
-                <a class="boton-principal" href="/curso/nuevo">Registrar Curso</a>
+                <a class="boton-principal" href="${pageContext.request.contextPath}/curso/nuevo">Registrar Curso</a>
             </div>
 
         </div>
@@ -84,7 +84,7 @@
                                 <td class="td-elearn column-4-curso-elearn">${curso.getDuracionHoras()}</td>
                                 <td class="td-elearn column-5-curso-elearn">${curso.getInversion()}</td>
                                 <td class="td-elearn">
-                                    <a class="cta" href="/curso/detalle?codigo=${curso.getCodigo()}">Detalle</a>
+                                    <a class="cta" href="${pageContext.request.contextPath}/curso/detalle?codigo=${curso.getCodigo()}">Detalle</a>
                                 </td>
                             </tr>
                         </c:forEach>

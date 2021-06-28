@@ -7,9 +7,9 @@ package com.sin.proyecto2.udep.test.controllers;
 
 import com.sin.proyecto2.udep.test.services.CreateCursoService;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,11 +25,12 @@ public class CursoController extends BaseController {
             throws ServletException, IOException {
         
         if(!validateSessionService.validate(request.getSession(false))) {
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            redirect(request, response, "/login");
             return;
         }
         
-        request.getRequestDispatcher("nuevo.jsp").forward(request, response);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/curso/nuevo.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class CursoController extends BaseController {
             throws ServletException, IOException {
         
         if(!validateSessionService.validate(request.getSession(false))) {
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            redirect(request, response, "/login");
             return;
         }
         
@@ -60,11 +61,11 @@ public class CursoController extends BaseController {
         String respuesta = service.create(params);
         
         if(!"OK".equals(respuesta)) {
-            response.sendRedirect(request.getContextPath() + "/error.html");
-        } else {
-            response.sendRedirect("/inicio");
-        }
+            redirect(request, response, "/error.html");
+            return;
+        } 
         
+        redirect(request, response, "/inicio");
     }
 
 }

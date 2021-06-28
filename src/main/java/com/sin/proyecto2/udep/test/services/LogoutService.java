@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class LogoutService {
     
     public void logout(HttpSession session) {
-        if (session != null) {
+        if (session.getAttribute("user") != null) {
             session.invalidate();
         }
     }

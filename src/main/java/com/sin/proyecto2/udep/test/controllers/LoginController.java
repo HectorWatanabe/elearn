@@ -7,9 +7,9 @@ package com.sin.proyecto2.udep.test.controllers;
 
 import com.sin.proyecto2.udep.test.services.LoginService;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +18,20 @@ import javax.servlet.http.HttpServletResponse;
  * @author HP
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
+public class LoginController extends BaseController {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        if (!validateSessionService.validate(request.getSession(false))) {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
+        redirect(request, response, "/inicio");
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,14 +42,14 @@ public class LoginController extends HttpServlet {
 
         LoginService service = new LoginService();
 
-        String respuesta = service.login(correo, clave, request.getSession());
+        String respuesta = service.login(correo, clave, request.getSession(true));
 
         if (!"OK".equals(respuesta)) {
-            response.sendRedirect(request.getContextPath() + "/error.html");
-        } else {
-            response.sendRedirect("/inicio");
+            redirect(request, response, "/error.html");
+            return;
         }
 
+        redirect(request, response, "/inicio");
     }
 
 }

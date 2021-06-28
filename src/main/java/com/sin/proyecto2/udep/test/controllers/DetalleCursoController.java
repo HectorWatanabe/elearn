@@ -7,9 +7,9 @@ package com.sin.proyecto2.udep.test.controllers;
 
 import com.sin.proyecto2.udep.test.services.GetDetailCursoService;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,7 +25,7 @@ public class DetalleCursoController extends BaseController {
             throws ServletException, IOException {
         
         if(!validateSessionService.validate(request.getSession(false))) {
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            redirect(request, response, "/login");
             return;
         }
         
@@ -37,8 +37,8 @@ public class DetalleCursoController extends BaseController {
         
         request.setAttribute("curso", service.get(codigoCurso));
         
-        request.getRequestDispatcher("detail.jsp").forward(request, response);
-        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/curso/detail.jsp");
+        dispatcher.forward(request, response);
     }
 
 }
